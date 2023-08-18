@@ -153,12 +153,8 @@ regd_users.delete("/auth/review/:isbn", (req, res) => {
             .json({message: 'Something went wrong'});
     }
 
-    console.log(`isbn: ${isbn}`);
-    console.log(`username: ${username}`);
-
     Object.keys(books).forEach((key) => {
         if (books[key].isbn === isbn) {
-            console.log(books[key].reviews[username]);
             if (books[key].reviews[username]) {
                 delete books[key].reviews[username];
             } else {
